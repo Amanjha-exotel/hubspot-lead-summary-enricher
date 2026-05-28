@@ -142,13 +142,13 @@ const sdrTeams = [
 const priorityConfig = {
   Urgent: { color: "#ff3b5c", bg: "rgba(255,59,92,0.12)", label: "URGENT" },
   Standard: { color: "#f5a623", bg: "rgba(245,166,35,0.12)", label: "STANDARD" },
-  Disqualified: { color: "#4a5568", bg: "rgba(74,85,104,0.15)", label: "DISQUALIFIED" },
+  Disqualified: { color: "#94a3b8", bg: "rgba(74,85,104,0.15)", label: "DISQUALIFIED" },
 };
 
 const icpConfig = {
   High: { color: "#00d4aa" },
   Medium: { color: "#f5a623" },
-  Low: { color: "#4a5568" },
+  Low: { color: "#94a3b8" },
 };
 
 export default function App() {
@@ -158,19 +158,19 @@ export default function App() {
   return (
     <div style={{
       fontFamily: "'DM Mono', 'Courier New', monospace",
-      background: "#0a0d12",
-      color: "#e2e8f0",
+      background: "#ffffff",
+      color: "#0f172a",
       minHeight: "100vh",
     }}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; }
         ::-webkit-scrollbar { width: 4px; }
-        ::-webkit-scrollbar-track { background: #0a0d12; }
-        ::-webkit-scrollbar-thumb { background: #2d3748; border-radius: 2px; }
+        ::-webkit-scrollbar-track { background: #ffffff; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 2px; }
         .tab-btn { background: none; border: none; cursor: pointer; transition: all 0.2s; }
         .lead-card { transition: all 0.15s; cursor: pointer; }
-        .lead-card:hover { border-color: #2d3748 !important; }
+        .lead-card:hover { border-color: #cbd5e1 !important; }
         .lead-card.active { border-color: #00d4aa !important; background: rgba(0,212,170,0.04) !important; }
         .pulse { animation: pulse 2s infinite; }
         @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
@@ -180,12 +180,12 @@ export default function App() {
 
       {/* Header */}
       <div style={{
-        borderBottom: "1px solid #1a2030",
+        borderBottom: "1px solid #e2e8f0",
         padding: "16px 32px",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        background: "#0d1117",
+        background: "#f8fafc",
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
           <div style={{
@@ -196,10 +196,10 @@ export default function App() {
             fontSize: "14px", fontWeight: "700",
           }}>L</div>
           <div>
-            <div style={{ fontFamily: "'Syne', sans-serif", fontSize: "15px", fontWeight: "700", color: "#fff", letterSpacing: "0.02em" }}>
+            <div style={{ fontFamily: "'Syne', sans-serif", fontSize: "15px", fontWeight: "700", color: "#0f172a", letterSpacing: "0.02em" }}>
               Lead Intelligence & SDR Briefing Agent
             </div>
-            <div style={{ fontSize: "10px", color: "#4a5568", letterSpacing: "0.08em", marginTop: "1px" }}>
+            <div style={{ fontSize: "10px", color: "#94a3b8", letterSpacing: "0.08em", marginTop: "1px" }}>
               POWERED BY CLAUDE · HUBSPOT · BREEZE INTELLIGENCE
             </div>
           </div>
@@ -207,14 +207,14 @@ export default function App() {
         <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
             <div className="pulse" style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#00d4aa" }} />
-            <span style={{ fontSize: "10px", color: "#4a5568", letterSpacing: "0.06em" }}>LIVE · Watching form submissions</span>
+            <span style={{ fontSize: "10px", color: "#94a3b8", letterSpacing: "0.06em" }}>LIVE · Watching form submissions</span>
           </div>
-          <div style={{ fontSize: "11px", color: "#4a5568" }}>28 May 2026</div>
+          <div style={{ fontSize: "11px", color: "#94a3b8" }}>28 May 2026</div>
         </div>
       </div>
 
       {/* Tabs */}
-      <div style={{ borderBottom: "1px solid #1a2030", padding: "0 32px", background: "#0d1117", display: "flex", gap: "0" }}>
+      <div style={{ borderBottom: "1px solid #e2e8f0", padding: "0 32px", background: "#f8fafc", display: "flex", gap: "0" }}>
         {[
           { id: "inbox", label: "LEAD INBOX" },
           { id: "routing", label: "ROUTING & CAPACITY" },
@@ -248,19 +248,19 @@ export default function App() {
             {/* KPI strip */}
             <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "10px", marginBottom: "20px" }}>
               {[
-                { label: "LEADS TODAY", value: stats.todayLeads, color: "#e2e8f0" },
+                { label: "LEADS TODAY", value: stats.todayLeads, color: "#0f172a" },
                 { label: "AUTO-ROUTED", value: stats.routedAuto, color: "#00d4aa" },
                 { label: "HIGH INTENT", value: stats.highIntentLeads, color: "#ff3b5c" },
-                { label: "DISQUALIFIED", value: stats.disqualified, color: "#4a5568" },
+                { label: "DISQUALIFIED", value: stats.disqualified, color: "#94a3b8" },
                 { label: "AVG ROUTE TIME", value: stats.avgRoutingTime, color: "#0084ff" },
               ].map((k, i) => (
                 <div key={i} style={{
-                  background: "#0d1117",
-                  border: "1px solid #1a2030",
+                  background: "#f8fafc",
+                  border: "1px solid #e2e8f0",
                   borderRadius: "8px",
                   padding: "12px 14px",
                 }}>
-                  <div style={{ fontSize: "9px", color: "#4a5568", letterSpacing: "0.1em", marginBottom: "6px" }}>{k.label}</div>
+                  <div style={{ fontSize: "9px", color: "#94a3b8", letterSpacing: "0.1em", marginBottom: "6px" }}>{k.label}</div>
                   <div style={{ fontSize: "20px", fontFamily: "'Syne', sans-serif", fontWeight: "700", color: k.color }}>{k.value}</div>
                 </div>
               ))}
@@ -270,7 +270,7 @@ export default function App() {
             <div style={{ display: "grid", gridTemplateColumns: "380px 1fr", gap: "16px" }}>
               {/* Lead list */}
               <div>
-                <div style={{ fontSize: "9px", color: "#4a5568", letterSpacing: "0.1em", marginBottom: "10px", padding: "0 4px" }}>
+                <div style={{ fontSize: "9px", color: "#94a3b8", letterSpacing: "0.1em", marginBottom: "10px", padding: "0 4px" }}>
                   RECENT LEADS · LAST 60 MIN
                 </div>
                 <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
@@ -283,17 +283,17 @@ export default function App() {
                         className={`lead-card ${selectedLead.id === l.id ? "active" : ""}`}
                         onClick={() => setSelectedLead(l)}
                         style={{
-                          background: "#0d1117",
-                          border: "1px solid #1a2030",
+                          background: "#f8fafc",
+                          border: "1px solid #e2e8f0",
                           borderRadius: "8px",
                           padding: "12px 14px",
                         }}
                       >
                         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "6px" }}>
                           <div>
-                            <div style={{ fontSize: "12px", color: "#fff", fontWeight: "500", marginBottom: "2px" }}>{l.name}</div>
-                            <div style={{ fontSize: "10px", color: "#94a3b8" }}>{l.title}</div>
-                            <div style={{ fontSize: "10px", color: "#4a5568", marginTop: "2px" }}>{l.company} · {l.industry}</div>
+                            <div style={{ fontSize: "12px", color: "#0f172a", fontWeight: "500", marginBottom: "2px" }}>{l.name}</div>
+                            <div style={{ fontSize: "10px", color: "#64748b" }}>{l.title}</div>
+                            <div style={{ fontSize: "10px", color: "#94a3b8", marginTop: "2px" }}>{l.company} · {l.industry}</div>
                           </div>
                           <div style={{ textAlign: "right" }}>
                             <div style={{
@@ -302,7 +302,7 @@ export default function App() {
                               fontWeight: "700",
                               color: l.intentScore > 80 ? "#ff3b5c" : l.intentScore > 50 ? "#f5a623" : "#4a5568",
                             }}>{l.intentScore}</div>
-                            <div style={{ fontSize: "8px", color: "#4a5568", letterSpacing: "0.08em" }}>INTENT</div>
+                            <div style={{ fontSize: "8px", color: "#94a3b8", letterSpacing: "0.08em" }}>INTENT</div>
                           </div>
                         </div>
                         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "8px" }}>
@@ -319,7 +319,7 @@ export default function App() {
                               fontSize: "9px", letterSpacing: "0.06em",
                             }}>ICP: {l.icpFit.toUpperCase()}</span>
                           </div>
-                          <div style={{ fontSize: "9px", color: "#4a5568" }}>{l.submittedAt}</div>
+                          <div style={{ fontSize: "9px", color: "#94a3b8" }}>{l.submittedAt}</div>
                         </div>
                       </div>
                     );
@@ -329,24 +329,24 @@ export default function App() {
 
               {/* Briefing panel */}
               <div key={selectedLead.id} className="fade-in" style={{
-                background: "#0d1117",
-                border: "1px solid #1a2030",
+                background: "#f8fafc",
+                border: "1px solid #e2e8f0",
                 borderRadius: "8px",
                 padding: "24px",
               }}>
                 {/* Lead header */}
-                <div style={{ borderBottom: "1px solid #1a2030", paddingBottom: "16px", marginBottom: "20px" }}>
+                <div style={{ borderBottom: "1px solid #e2e8f0", paddingBottom: "16px", marginBottom: "20px" }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
                     <div>
                       <div style={{
                         fontFamily: "'Syne', sans-serif",
                         fontSize: "22px",
                         fontWeight: "700",
-                        color: "#fff",
+                        color: "#0f172a",
                         marginBottom: "4px",
                       }}>{selectedLead.name}</div>
-                      <div style={{ fontSize: "12px", color: "#94a3b8" }}>{selectedLead.title} · {selectedLead.company}</div>
-                      <div style={{ fontSize: "11px", color: "#4a5568", marginTop: "4px" }}>
+                      <div style={{ fontSize: "12px", color: "#64748b" }}>{selectedLead.title} · {selectedLead.company}</div>
+                      <div style={{ fontSize: "11px", color: "#94a3b8", marginTop: "4px" }}>
                         {selectedLead.industry} · {selectedLead.employees ? `${selectedLead.employees.toLocaleString()} employees` : "—"} · {selectedLead.location}
                       </div>
                     </div>
@@ -358,7 +358,7 @@ export default function App() {
                         color: selectedLead.intentScore > 80 ? "#ff3b5c" : selectedLead.intentScore > 50 ? "#f5a623" : "#4a5568",
                         lineHeight: "1",
                       }}>{selectedLead.intentScore}</div>
-                      <div style={{ fontSize: "9px", color: "#4a5568", letterSpacing: "0.1em", marginTop: "4px" }}>INTENT SCORE</div>
+                      <div style={{ fontSize: "9px", color: "#94a3b8", letterSpacing: "0.1em", marginTop: "4px" }}>INTENT SCORE</div>
                     </div>
                   </div>
                 </div>
@@ -375,7 +375,7 @@ export default function App() {
                     <div style={{ fontSize: "12px", color: "#7c3aed" }}>✦</div>
                     <div style={{ fontSize: "9px", color: "#7c3aed", letterSpacing: "0.1em" }}>AGENT BRIEFING FOR SDR</div>
                   </div>
-                  <div style={{ fontSize: "12px", color: "#e2e8f0", lineHeight: "1.7" }}>
+                  <div style={{ fontSize: "12px", color: "#0f172a", lineHeight: "1.7" }}>
                     {selectedLead.briefing}
                   </div>
                   {selectedLead.nextAction && (
@@ -383,7 +383,7 @@ export default function App() {
                       marginTop: "14px", paddingTop: "12px", borderTop: "1px solid rgba(124,58,237,0.2)",
                     }}>
                       <div style={{ fontSize: "9px", color: "#7c3aed", letterSpacing: "0.1em", marginBottom: "6px" }}>NEXT ACTION</div>
-                      <div style={{ fontSize: "11px", color: "#94a3b8" }}>{selectedLead.nextAction}</div>
+                      <div style={{ fontSize: "11px", color: "#64748b" }}>{selectedLead.nextAction}</div>
                     </div>
                   )}
                 </div>
@@ -392,45 +392,45 @@ export default function App() {
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "14px", marginBottom: "20px" }}>
                   {/* Behavior */}
                   <div>
-                    <div style={{ fontSize: "9px", color: "#4a5568", letterSpacing: "0.1em", marginBottom: "10px" }}>WEBSITE BEHAVIOR</div>
+                    <div style={{ fontSize: "9px", color: "#94a3b8", letterSpacing: "0.1em", marginBottom: "10px" }}>WEBSITE BEHAVIOR</div>
                     <div style={{ fontSize: "11px", color: "#0084ff", marginBottom: "8px" }}>{selectedLead.sessions} sessions</div>
                     {selectedLead.pagesViewed.map((p, i) => (
-                      <div key={i} style={{ fontSize: "10px", color: "#94a3b8", padding: "3px 0", display: "flex", gap: "6px" }}>
+                      <div key={i} style={{ fontSize: "10px", color: "#64748b", padding: "3px 0", display: "flex", gap: "6px" }}>
                         <span style={{ color: "#0084ff", opacity: 0.5 }}>›</span>{p}
                       </div>
                     ))}
                   </div>
                   {/* Engagement */}
                   <div>
-                    <div style={{ fontSize: "9px", color: "#4a5568", letterSpacing: "0.1em", marginBottom: "10px" }}>ENGAGEMENT</div>
+                    <div style={{ fontSize: "9px", color: "#94a3b8", letterSpacing: "0.1em", marginBottom: "10px" }}>ENGAGEMENT</div>
                     {selectedLead.engagementHistory.map((p, i) => (
-                      <div key={i} style={{ fontSize: "10px", color: "#94a3b8", padding: "3px 0", display: "flex", gap: "6px" }}>
+                      <div key={i} style={{ fontSize: "10px", color: "#64748b", padding: "3px 0", display: "flex", gap: "6px" }}>
                         <span style={{ color: "#00d4aa", opacity: 0.5 }}>›</span>{p}
                       </div>
                     ))}
                   </div>
                   {/* Enrichment */}
                   <div>
-                    <div style={{ fontSize: "9px", color: "#4a5568", letterSpacing: "0.1em", marginBottom: "10px" }}>ACCOUNT ENRICHMENT</div>
-                    <div style={{ fontSize: "10px", color: "#94a3b8", padding: "3px 0" }}>
-                      <span style={{ color: "#4a5568" }}>Tech:</span> {selectedLead.enrichment.techStack}
+                    <div style={{ fontSize: "9px", color: "#94a3b8", letterSpacing: "0.1em", marginBottom: "10px" }}>ACCOUNT ENRICHMENT</div>
+                    <div style={{ fontSize: "10px", color: "#64748b", padding: "3px 0" }}>
+                      <span style={{ color: "#94a3b8" }}>Tech:</span> {selectedLead.enrichment.techStack}
                     </div>
-                    <div style={{ fontSize: "10px", color: "#94a3b8", padding: "3px 0" }}>
-                      <span style={{ color: "#4a5568" }}>Growth:</span> {selectedLead.enrichment.growthSignal}
+                    <div style={{ fontSize: "10px", color: "#64748b", padding: "3px 0" }}>
+                      <span style={{ color: "#94a3b8" }}>Growth:</span> {selectedLead.enrichment.growthSignal}
                     </div>
-                    <div style={{ fontSize: "10px", color: "#94a3b8", padding: "3px 0" }}>
-                      <span style={{ color: "#4a5568" }}>Revenue:</span> {selectedLead.enrichment.revenue}
+                    <div style={{ fontSize: "10px", color: "#64748b", padding: "3px 0" }}>
+                      <span style={{ color: "#94a3b8" }}>Revenue:</span> {selectedLead.enrichment.revenue}
                     </div>
-                    <div style={{ fontSize: "10px", color: "#94a3b8", padding: "3px 0" }}>
-                      <span style={{ color: "#4a5568" }}>HC trend:</span> {selectedLead.enrichment.headcountTrend}
+                    <div style={{ fontSize: "10px", color: "#64748b", padding: "3px 0" }}>
+                      <span style={{ color: "#94a3b8" }}>HC trend:</span> {selectedLead.enrichment.headcountTrend}
                     </div>
                   </div>
                 </div>
 
                 {/* Routing */}
                 <div style={{
-                  background: "#0a0d12",
-                  border: "1px solid #1a2030",
+                  background: "#ffffff",
+                  border: "1px solid #e2e8f0",
                   borderRadius: "6px",
                   padding: "14px",
                   display: "flex",
@@ -438,14 +438,14 @@ export default function App() {
                   alignItems: "center",
                 }}>
                   <div>
-                    <div style={{ fontSize: "9px", color: "#4a5568", letterSpacing: "0.1em", marginBottom: "4px" }}>ROUTED TO</div>
+                    <div style={{ fontSize: "9px", color: "#94a3b8", letterSpacing: "0.1em", marginBottom: "4px" }}>ROUTED TO</div>
                     {selectedLead.assignedSDR ? (
                       <div>
-                        <div style={{ fontSize: "13px", color: "#fff", marginBottom: "2px" }}>{selectedLead.assignedSDR}</div>
-                        <div style={{ fontSize: "10px", color: "#94a3b8" }}>{selectedLead.sdrTeam} Team</div>
+                        <div style={{ fontSize: "13px", color: "#0f172a", marginBottom: "2px" }}>{selectedLead.assignedSDR}</div>
+                        <div style={{ fontSize: "10px", color: "#64748b" }}>{selectedLead.sdrTeam} Team</div>
                       </div>
                     ) : (
-                      <div style={{ fontSize: "12px", color: "#4a5568" }}>{selectedLead.flag || "Not routed"}</div>
+                      <div style={{ fontSize: "12px", color: "#94a3b8" }}>{selectedLead.flag || "Not routed"}</div>
                     )}
                   </div>
                   {selectedLead.assignedSDR && (
@@ -462,11 +462,11 @@ export default function App() {
                       }}>✓ Confirm Routing</button>
                       <button style={{
                         background: "transparent",
-                        border: "1px solid #2d3748",
+                        border: "1px solid #cbd5e1",
                         borderRadius: "4px",
                         padding: "6px 12px",
                         fontSize: "10px",
-                        color: "#94a3b8",
+                        color: "#64748b",
                         cursor: "pointer",
                         fontFamily: "'DM Mono', monospace",
                       }}>Reassign</button>
@@ -481,7 +481,7 @@ export default function App() {
         {/* ROUTING */}
         {activeTab === "routing" && (
           <div>
-            <div style={{ fontSize: "10px", color: "#4a5568", letterSpacing: "0.08em", marginBottom: "16px" }}>
+            <div style={{ fontSize: "10px", color: "#94a3b8", letterSpacing: "0.08em", marginBottom: "16px" }}>
               SDR TEAM CAPACITY · LIVE LOAD BALANCING
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "14px", marginBottom: "28px" }}>
@@ -490,25 +490,25 @@ export default function App() {
                 const color = pct > 80 ? "#ff3b5c" : pct > 60 ? "#f5a623" : "#00d4aa";
                 return (
                   <div key={i} style={{
-                    background: "#0d1117",
-                    border: "1px solid #1a2030",
+                    background: "#f8fafc",
+                    border: "1px solid #e2e8f0",
                     borderRadius: "8px",
                     padding: "16px 18px",
                   }}>
                     <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "12px" }}>
                       <div>
-                        <div style={{ fontSize: "13px", color: "#fff", marginBottom: "2px" }}>{t.name}</div>
-                        <div style={{ fontSize: "9px", color: "#4a5568", letterSpacing: "0.08em" }}>{t.region} REGION</div>
+                        <div style={{ fontSize: "13px", color: "#0f172a", marginBottom: "2px" }}>{t.name}</div>
+                        <div style={{ fontSize: "9px", color: "#94a3b8", letterSpacing: "0.08em" }}>{t.region} REGION</div>
                       </div>
                       <div style={{ textAlign: "right" }}>
                         <div style={{ fontSize: "20px", fontFamily: "'Syne', sans-serif", fontWeight: "700", color }}>{t.load}/{t.capacity}</div>
-                        <div style={{ fontSize: "9px", color: "#4a5568", letterSpacing: "0.08em" }}>LEADS · CAPACITY</div>
+                        <div style={{ fontSize: "9px", color: "#94a3b8", letterSpacing: "0.08em" }}>LEADS · CAPACITY</div>
                       </div>
                     </div>
-                    <div style={{ height: "6px", background: "#1a2030", borderRadius: "3px", overflow: "hidden" }}>
+                    <div style={{ height: "6px", background: "#e2e8f0", borderRadius: "3px", overflow: "hidden" }}>
                       <div style={{ height: "100%", width: `${pct}%`, background: color, borderRadius: "3px" }} />
                     </div>
-                    <div style={{ fontSize: "10px", color: "#4a5568", marginTop: "8px" }}>
+                    <div style={{ fontSize: "10px", color: "#94a3b8", marginTop: "8px" }}>
                       {pct < 60 ? "Available · accepting new leads" : pct < 80 ? "Moderate · prioritize urgent" : "High load · escalation enabled"}
                     </div>
                   </div>
@@ -516,10 +516,10 @@ export default function App() {
               })}
             </div>
 
-            <div style={{ fontSize: "10px", color: "#4a5568", letterSpacing: "0.08em", marginBottom: "12px" }}>
+            <div style={{ fontSize: "10px", color: "#94a3b8", letterSpacing: "0.08em", marginBottom: "12px" }}>
               ROUTING LOGIC
             </div>
-            <div style={{ background: "#0d1117", border: "1px solid #1a2030", borderRadius: "8px", padding: "20px" }}>
+            <div style={{ background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px", padding: "20px" }}>
               {[
                 { cond: "Intent Score > 80 + ICP High + Employees > 1000 + Region = IND", route: "Enterprise Team (by product)" },
                 { cond: "Intent Score > 80 + Region = MENA", route: "MENA Enterprise Team" },
@@ -529,13 +529,13 @@ export default function App() {
               ].map((r, i) => (
                 <div key={i} style={{
                   padding: "12px 0",
-                  borderBottom: i < 4 ? "1px solid #1a2030" : "none",
+                  borderBottom: i < 4 ? "1px solid #e2e8f0" : "none",
                   display: "grid",
                   gridTemplateColumns: "1fr auto 1fr",
                   gap: "16px",
                   alignItems: "center",
                 }}>
-                  <div style={{ fontSize: "11px", color: "#94a3b8" }}>{r.cond}</div>
+                  <div style={{ fontSize: "11px", color: "#64748b" }}>{r.cond}</div>
                   <div style={{ color: "#7c3aed", fontSize: "12px" }}>→</div>
                   <div style={{ fontSize: "11px", color: "#00d4aa" }}>{r.route}</div>
                 </div>
@@ -547,7 +547,7 @@ export default function App() {
         {/* FLOW */}
         {activeTab === "flow" && (
           <div>
-            <div style={{ fontSize: "10px", color: "#4a5568", letterSpacing: "0.08em", marginBottom: "20px" }}>
+            <div style={{ fontSize: "10px", color: "#94a3b8", letterSpacing: "0.08em", marginBottom: "20px" }}>
               END-TO-END AGENT FLOW · TRIGGERED ON FORM SUBMISSION
             </div>
             {[
@@ -607,11 +607,11 @@ export default function App() {
                     display: "flex", alignItems: "center", justifyContent: "center",
                     fontSize: "10px", color: s.color, fontWeight: "600",
                   }}>{s.step}</div>
-                  {i < 4 && <div style={{ width: "2px", flex: 1, background: "#1a2030", minHeight: "20px" }} />}
+                  {i < 4 && <div style={{ width: "2px", flex: 1, background: "#e2e8f0", minHeight: "20px" }} />}
                 </div>
                 <div style={{
-                  background: "#0d1117",
-                  border: "1px solid #1a2030",
+                  background: "#f8fafc",
+                  border: "1px solid #e2e8f0",
                   borderRadius: "8px",
                   padding: "16px 20px",
                   marginLeft: "12px",
@@ -620,7 +620,7 @@ export default function App() {
                 }}>
                   <div style={{ fontSize: "10px", color: s.color, letterSpacing: "0.1em", marginBottom: "10px" }}>{s.title}</div>
                   {s.items.map((item, j) => (
-                    <div key={j} style={{ fontSize: "11px", color: "#94a3b8", padding: "4px 0", display: "flex", gap: "8px" }}>
+                    <div key={j} style={{ fontSize: "11px", color: "#64748b", padding: "4px 0", display: "flex", gap: "8px" }}>
                       <span style={{ color: s.color, opacity: 0.5 }}>›</span>{item}
                     </div>
                   ))}
@@ -633,7 +633,7 @@ export default function App() {
         {/* PERFORMANCE */}
         {activeTab === "performance" && (
           <div>
-            <div style={{ fontSize: "10px", color: "#4a5568", letterSpacing: "0.08em", marginBottom: "16px" }}>
+            <div style={{ fontSize: "10px", color: "#94a3b8", letterSpacing: "0.08em", marginBottom: "16px" }}>
               30-DAY ROLLING METRICS · AGENT VS PRE-AGENT BASELINE
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "14px", marginBottom: "24px" }}>
@@ -646,19 +646,19 @@ export default function App() {
                 { label: "SDR SATISFACTION", before: "6.2 / 10", after: "8.7 / 10", delta: "+40%", color: "#00d4aa" },
               ].map((m, i) => (
                 <div key={i} style={{
-                  background: "#0d1117", border: "1px solid #1a2030",
+                  background: "#f8fafc", border: "1px solid #e2e8f0",
                   borderRadius: "8px", padding: "16px 18px",
                 }}>
-                  <div style={{ fontSize: "9px", color: "#4a5568", letterSpacing: "0.1em", marginBottom: "10px" }}>{m.label}</div>
+                  <div style={{ fontSize: "9px", color: "#94a3b8", letterSpacing: "0.1em", marginBottom: "10px" }}>{m.label}</div>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
                     <div>
-                      <div style={{ fontSize: "10px", color: "#4a5568", marginBottom: "4px" }}>Before</div>
-                      <div style={{ fontSize: "13px", color: "#94a3b8" }}>{m.before}</div>
+                      <div style={{ fontSize: "10px", color: "#94a3b8", marginBottom: "4px" }}>Before</div>
+                      <div style={{ fontSize: "13px", color: "#64748b" }}>{m.before}</div>
                     </div>
-                    <div style={{ color: "#4a5568", fontSize: "12px" }}>→</div>
+                    <div style={{ color: "#94a3b8", fontSize: "12px" }}>→</div>
                     <div>
-                      <div style={{ fontSize: "10px", color: "#4a5568", marginBottom: "4px" }}>After</div>
-                      <div style={{ fontSize: "16px", color: "#fff", fontFamily: "'Syne', sans-serif", fontWeight: "700" }}>{m.after}</div>
+                      <div style={{ fontSize: "10px", color: "#94a3b8", marginBottom: "4px" }}>After</div>
+                      <div style={{ fontSize: "16px", color: "#0f172a", fontFamily: "'Syne', sans-serif", fontWeight: "700" }}>{m.after}</div>
                     </div>
                     <div style={{
                       background: "rgba(0,212,170,0.12)", color: m.color,
@@ -670,8 +670,8 @@ export default function App() {
               ))}
             </div>
 
-            <div style={{ background: "#0d1117", border: "1px solid #1a2030", borderRadius: "8px", padding: "20px" }}>
-              <div style={{ fontSize: "10px", color: "#4a5568", letterSpacing: "0.1em", marginBottom: "14px" }}>
+            <div style={{ background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px", padding: "20px" }}>
+              <div style={{ fontSize: "10px", color: "#94a3b8", letterSpacing: "0.1em", marginBottom: "14px" }}>
                 AGENT QUALITY METRICS (HUMAN-IN-THE-LOOP VALIDATION)
               </div>
               {[
@@ -682,10 +682,10 @@ export default function App() {
               ].map((m, i) => (
                 <div key={i} style={{
                   display: "flex", justifyContent: "space-between",
-                  padding: "10px 0", borderBottom: i < 3 ? "1px solid #1a2030" : "none",
+                  padding: "10px 0", borderBottom: i < 3 ? "1px solid #e2e8f0" : "none",
                 }}>
-                  <div style={{ fontSize: "11px", color: "#94a3b8" }}>{m.label}</div>
-                  <div style={{ fontSize: "12px", color: "#fff", fontWeight: "500" }}>{m.value}</div>
+                  <div style={{ fontSize: "11px", color: "#64748b" }}>{m.label}</div>
+                  <div style={{ fontSize: "12px", color: "#0f172a", fontWeight: "500" }}>{m.value}</div>
                 </div>
               ))}
             </div>
